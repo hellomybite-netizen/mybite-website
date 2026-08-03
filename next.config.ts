@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
   ...(isGithubPages
     ? {
         output: "export",
-        basePath: "/mybite-website",
-        assetPrefix: "/mybite-website/",
         trailingSlash: true,
         images: { unoptimized: true },
       }
