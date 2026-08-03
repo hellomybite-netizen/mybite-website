@@ -195,7 +195,7 @@ export default function Home() {
       <section className="section work" id="work">
         <div className="work-head"><div><p className="eyebrow"><i></i>{t.workEyebrow}</p><h2>{t.workTitle}</h2></div><p>{t.workBody}</p></div>
         <article className="case-study">
-          <div className="case-visual"><div className="phone"><div className="phone-top"></div><div className="chat chat-a"></div><div className="chat chat-b"></div><div className="pay-card"><small>Digital essentials</small><strong>Easy. Local. Connected.</strong><span>→</span></div></div><div className="case-ring"></div></div>
+          <div className="case-visual"><img className="gonilai-phone" src={`${basePath}/gonilai-phone-mockup.png`} alt="GoNilai mobile purchase experience" loading="lazy" /><div className="case-ring"></div><span className="case-asset-label">GoNilai · Mobile experience</span></div>
           <div className="case-copy"><p className="case-tag">{t.caseTag}</p><h3>{t.caseTitle}</h3><p>{t.caseBody}</p><a href="https://gonilai.mybite.id/" target="_blank" rel="noreferrer">{t.caseLink}<span>↗</span></a></div>
         </article>
       </section>
