@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+export type Language = "en" | "id";
+
 const whatsapp = "https://wa.me/6281333019049?text=Hi%20MyBite%2C%20I%27d%20like%20to%20discuss%20marketing%20to%20Indonesian%20communities%20abroad.";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -111,10 +113,11 @@ const copy = {
   },
 };
 
-export default function Home() {
-  const [lang, setLang] = useState<"en" | "id">("en");
+export default function LocalizedHome({ lang }: { lang: Language }) {
   const [menu, setMenu] = useState(false);
   const t = copy[lang];
+  const englishUrl = `${basePath}/en/`;
+  const indonesianUrl = `${basePath}/id/`;
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -129,8 +132,8 @@ export default function Home() {
         </nav>
         <div className="header-actions">
           <div className="language" aria-label="Language selector">
-            <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button><span>/</span>
-            <button className={lang === "id" ? "active" : ""} onClick={() => setLang("id")}>ID</button>
+            <a className={lang === "en" ? "active" : ""} href={englishUrl} hrefLang="en" lang="en" aria-current={lang === "en" ? "page" : undefined}>EN</a><span>/</span>
+            <a className={lang === "id" ? "active" : ""} href={indonesianUrl} hrefLang="id" lang="id" aria-current={lang === "id" ? "page" : undefined}>ID</a>
           </div>
           <a className="header-cta" href={whatsapp} target="_blank" rel="noreferrer">{t.talk}<span>↗</span></a>
           <button className="menu-button" onClick={() => setMenu(!menu)} aria-label="Toggle menu" aria-expanded={menu}><span></span><span></span></button>
@@ -204,7 +207,7 @@ export default function Home() {
         <div className="final-orbit"></div><p className="eyebrow light"><i></i>{t.finalEyebrow}</p><h2>{t.finalTitle}</h2><p>{t.finalBody}</p><a className="button white" href={whatsapp} target="_blank" rel="noreferrer">{t.finalCta}<span>↗</span></a>
       </section>
 
-      <footer><a className="brand footer-brand" href="#top"><span>my</span>bite<span className="brand-dot">.</span></a><p>{t.footer}</p><div><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><button onClick={() => setLang(lang === "en" ? "id" : "en")}>{lang === "en" ? "Bahasa Indonesia" : "English"}</button></div><small>© {new Date().getFullYear()} MyBite. All rights reserved.</small></footer>
+      <footer><a className="brand footer-brand" href="#top"><span>my</span>bite<span className="brand-dot">.</span></a><p>{t.footer}</p><div><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="footer-language" href={lang === "en" ? indonesianUrl : englishUrl} hrefLang={lang === "en" ? "id" : "en"}>{lang === "en" ? "Bahasa Indonesia" : "English"}</a></div><small>© {new Date().getFullYear()} MyBite. All rights reserved.</small></footer>
     </main>
   );
 }
