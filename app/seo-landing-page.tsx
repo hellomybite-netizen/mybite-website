@@ -209,7 +209,7 @@ export default function SeoLandingPage({ page }: { page: LandingPageData }) {
           <h2>{page.proofTitle}</h2>
           <p>{page.proofBody}</p>
           <ul>{page.proofPoints.map((point) => <li key={point}><span>✓</span>{point}</li>)}</ul>
-          {page.key === "gonilai" && <a className="proof-link" href="https://gonilai.mybite.id/" target="_blank" rel="noreferrer">{t.live}<span>↗</span></a>}
+          {page.key === "gonilai" && <a className="proof-link" href="https://gonilai.my/" target="_blank" rel="noreferrer">{t.live}<span>↗</span></a>}
         </div>
         <div className="landing-client-panel">
           <p>{t.proof}</p>
