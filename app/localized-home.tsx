@@ -59,7 +59,7 @@ const copy = {
     caseTag: "CROSS-BORDER DIGITAL EXPERIENCE",
     caseTitle: "GoNilai",
     caseBody: "A digital purchase journey serving Indonesians in Malaysia, connecting everyday needs with a simple Messenger-led experience and local cash payment access.",
-    caseLink: "View live project",
+    caseLink: "Read the GoNilai case study",
     finalEyebrow: "LET'S BUILD RELEVANCE",
     finalTitle: "Ready to grow with Indonesian communities abroad?",
     finalBody: "Tell us where you operate, who you want to reach, and what growth looks like for your business.",
@@ -104,7 +104,7 @@ const copy = {
     caseTag: "PENGALAMAN DIGITAL LINTAS NEGARA",
     caseTitle: "GoNilai",
     caseBody: "Perjalanan pembelian digital untuk orang Indonesia di Malaysia, menghubungkan kebutuhan sehari-hari melalui pengalaman sederhana berbasis Messenger dan akses pembayaran tunai lokal.",
-    caseLink: "Lihat proyek aktif",
+    caseLink: "Baca studi kasus GoNilai",
     finalEyebrow: "MARI BANGUN RELEVANSI",
     finalTitle: "Siap bertumbuh bersama komunitas Indonesia di luar negeri?",
     finalBody: "Ceritakan lokasi bisnis, target audiens, dan arti pertumbuhan bagi bisnis Anda.",
@@ -118,6 +118,9 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
   const t = copy[lang];
   const englishUrl = `${basePath}/en/`;
   const indonesianUrl = `${basePath}/id/`;
+  const serviceUrl = lang === "en" ? `${basePath}/en/services/indonesian-diaspora-marketing/` : `${basePath}/id/layanan/pemasaran-diaspora-indonesia/`;
+  const malaysiaUrl = lang === "en" ? `${basePath}/en/markets/malaysia/` : `${basePath}/id/pasar/malaysia/`;
+  const caseStudyUrl = lang === "en" ? `${basePath}/en/work/gonilai-malaysia/` : `${basePath}/id/karya/gonilai-malaysia/`;
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -158,7 +161,7 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
         <div className="hero-note"><span className="pulse"></span><p>{t.signal}</p></div>
       </section>
 
-      <section className="trust-strip"><p>{t.trust}</p><div className="marquee"><span>Malaysia</span><b>•</b><span>Taiwan</span><b>•</b><span>Hong Kong</span><b>•</b><span>Singapore</span><b>•</b><span>Beyond</span></div></section>
+      <section className="trust-strip"><p>{t.trust}</p><div className="marquee"><a href={malaysiaUrl}>Malaysia</a><b>•</b><span>Taiwan</span><b>•</b><span>Hong Kong</span><b>•</b><span>Singapore</span><b>•</b><span>Beyond</span></div></section>
 
       <section className="client-section" id="clients" aria-labelledby="client-title">
         <div className="client-heading">
@@ -177,7 +180,7 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
 
       <section className="section services" id="expertise">
         <div className="section-head"><p className="eyebrow"><i></i>{t.servicesEyebrow}</p><h2>{t.servicesTitle}</h2><p>{t.servicesIntro}</p></div>
-        <div className="service-grid">{t.services.map(([number, title, body]) => <article className="service-card" key={number}><span className="number">{number}</span><div className="service-icon"><span></span><span></span></div><h3>{title}</h3><p>{body}</p><a href={whatsapp} target="_blank" rel="noreferrer" aria-label={`${title} - contact MyBite`}>↗</a></article>)}</div>
+        <div className="service-grid">{t.services.map(([number, title, body], index) => <article className="service-card" key={number}><span className="number">{number}</span><div className="service-icon"><span></span><span></span></div><h3>{title}</h3><p>{body}</p><a href={index === 0 ? serviceUrl : whatsapp} {...(index === 0 ? {} : { target: "_blank", rel: "noreferrer" })} aria-label={index === 0 ? `${title} - learn more` : `${title} - contact MyBite`}>↗</a></article>)}</div>
       </section>
 
       <section className="industries" id="industries">
@@ -199,7 +202,7 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
         <div className="work-head"><div><p className="eyebrow"><i></i>{t.workEyebrow}</p><h2>{t.workTitle}</h2></div><p>{t.workBody}</p></div>
         <article className="case-study">
           <div className="case-visual"><img className="gonilai-phone" src={`${basePath}/gonilai-phone-mockup.png`} alt="GoNilai mobile purchase experience" loading="lazy" /><div className="case-ring"></div><span className="case-asset-label">GoNilai · Mobile experience</span></div>
-          <div className="case-copy"><p className="case-tag">{t.caseTag}</p><h3>{t.caseTitle}</h3><p>{t.caseBody}</p><a href="https://gonilai.mybite.id/" target="_blank" rel="noreferrer">{t.caseLink}<span>↗</span></a></div>
+          <div className="case-copy"><p className="case-tag">{t.caseTag}</p><h3>{t.caseTitle}</h3><p>{t.caseBody}</p><a href={caseStudyUrl}>{t.caseLink}<span>↗</span></a></div>
         </article>
       </section>
 
