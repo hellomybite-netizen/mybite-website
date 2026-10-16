@@ -5,17 +5,17 @@ const siteUrl = "https://mybite.id";
 
 const localizedSeo = {
   en: {
-    title: "Indonesian Diaspora Marketing Agency | MyBite",
+    title: "Digital Marketing Agency for Indonesian Communities | MyBite",
     description:
-      "Reach Indonesian communities in Malaysia, Taiwan, Hong Kong, Singapore, and beyond with localized content, digital advertising, and WhatsApp funnels.",
+      "MyBite is a digital marketing agency helping brands reach Indonesian communities abroad through localized content, digital advertising, and WhatsApp funnels.",
     path: "/en/",
     locale: "en_US",
     alternateLocale: "id_ID",
   },
   id: {
-    title: "Agensi Pemasaran Diaspora Indonesia | MyBite",
+    title: "Agensi Digital Marketing untuk Diaspora Indonesia | MyBite",
     description:
-      "Jangkau komunitas Indonesia di Malaysia, Taiwan, Hong Kong, Singapura, dan negara lain melalui konten lokal, iklan digital, serta funnel WhatsApp.",
+      "MyBite adalah agensi digital marketing yang membantu brand menjangkau komunitas Indonesia di luar negeri melalui konten lokal, iklan digital, dan funnel WhatsApp.",
     path: "/id/",
     locale: "id_ID",
     alternateLocale: "en_US",

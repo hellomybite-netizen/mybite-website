@@ -25,8 +25,8 @@ const copy = {
     nav: ["Expertise", "Industries", "Approach", "Work"],
     talk: "Start a conversation",
     eyebrow: "INDONESIAN MARKET EXPERTISE · GLOBAL REACH",
-    hero: "Grow your brand among Indonesian communities abroad.",
-    intro: "MyBite helps businesses connect with Indonesian migrant communities through culturally relevant content, responsible digital advertising, and conversion-focused funnels.",
+    hero: "A digital marketing agency for Indonesian communities abroad.",
+    intro: "MyBite helps brands grow among Indonesian migrant communities through culturally relevant content, responsible digital advertising, and conversion-focused WhatsApp funnels.",
     cta: "Talk to our team",
     explore: "Explore our approach",
     trust: "Built for brands that serve Indonesians across borders",
@@ -64,14 +64,14 @@ const copy = {
     finalTitle: "Ready to grow with Indonesian communities abroad?",
     finalBody: "Tell us where you operate, who you want to reach, and what growth looks like for your business.",
     finalCta: "Chat with MyBite on WhatsApp",
-    footer: "Digital marketing for brands serving Indonesian communities abroad.",
+    footer: "Digital marketing agency for brands serving Indonesian communities abroad.",
   },
   id: {
     nav: ["Keahlian", "Industri", "Pendekatan", "Karya"],
     talk: "Mulai percakapan",
     eyebrow: "KEAHLIAN PASAR INDONESIA · JANGKAUAN GLOBAL",
-    hero: "Kembangkan brand Anda di komunitas Indonesia di luar negeri.",
-    intro: "MyBite membantu bisnis terhubung dengan komunitas pekerja migran Indonesia melalui konten yang relevan, periklanan digital yang bertanggung jawab, dan funnel berorientasi konversi.",
+    hero: "Agensi digital marketing untuk komunitas Indonesia di luar negeri.",
+    intro: "MyBite membantu brand bertumbuh di komunitas pekerja migran Indonesia melalui konten yang relevan, periklanan digital yang bertanggung jawab, dan funnel WhatsApp berorientasi konversi.",
     cta: "Hubungi tim kami",
     explore: "Lihat pendekatan kami",
     trust: "Untuk brand yang melayani orang Indonesia lintas negara",
@@ -109,7 +109,7 @@ const copy = {
     finalTitle: "Siap bertumbuh bersama komunitas Indonesia di luar negeri?",
     finalBody: "Ceritakan lokasi bisnis, target audiens, dan arti pertumbuhan bagi bisnis Anda.",
     finalCta: "Chat dengan MyBite di WhatsApp",
-    footer: "Digital marketing untuk brand yang melayani komunitas Indonesia di luar negeri.",
+    footer: "Agensi digital marketing untuk brand yang melayani komunitas Indonesia di luar negeri.",
   },
 };
 
@@ -121,6 +121,16 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
   const serviceUrl = lang === "en" ? `${basePath}/en/services/indonesian-diaspora-marketing/` : `${basePath}/id/layanan/pemasaran-diaspora-indonesia/`;
   const malaysiaUrl = lang === "en" ? `${basePath}/en/markets/malaysia/` : `${basePath}/id/pasar/malaysia/`;
   const caseStudyUrl = lang === "en" ? `${basePath}/en/work/gonilai-malaysia/` : `${basePath}/id/karya/gonilai-malaysia/`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "MyBite",
+    url: "https://mybite.id/",
+    image: "https://mybite.id/og.png",
+    description: t.intro,
+    serviceType: lang === "en" ? "Digital marketing agency" : "Agensi digital marketing",
+    areaServed: ["Malaysia", "Taiwan", "Hong Kong", "Singapore"],
+  };
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -128,6 +138,10 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="MyBite home"><span>my</span>bite<span className="brand-dot">.</span></a>
         <nav className={menu ? "nav open" : "nav"} aria-label="Main navigation">

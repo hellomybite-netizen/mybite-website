@@ -8,10 +8,10 @@ const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://mybite.id/"),
   title: {
-    default: "MyBite | Marketing for Indonesian Communities Abroad",
+    default: "Agensi Digital Marketing untuk Diaspora Indonesia | MyBite",
     template: "%s | MyBite",
   },
-  description: "MyBite membantu bisnis menjangkau komunitas Indonesia di luar negeri melalui konten lokal, iklan digital, dan funnel WhatsApp.",
+  description: "MyBite adalah agensi digital marketing yang membantu brand menjangkau komunitas Indonesia di luar negeri melalui konten lokal, iklan digital, dan funnel WhatsApp.",
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png", sizes: "512x512" }],
     shortcut: "/favicon.png",
