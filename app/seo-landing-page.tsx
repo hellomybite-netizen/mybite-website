@@ -252,7 +252,7 @@ export default function SeoLandingPage({ page }: { page: LandingPageData }) {
       <footer>
         <a className="brand footer-brand" href={page.homePath}><span>my</span>bite<span className="brand-dot">.</span></a>
         <p>{page.footer}</p>
-        <div><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="footer-language" href={page.alternatePath} hrefLang={page.lang === "en" ? "id" : "en"}>{alternateLabel}</a></div>
+        <div><a href="/en/insights/">Insights</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="footer-language" href={page.alternatePath} hrefLang={page.lang === "en" ? "id" : "en"}>{alternateLabel}</a></div>
         <small>© {new Date().getFullYear()} MyBite. {t.copyright}</small>
       </footer>
     </main>

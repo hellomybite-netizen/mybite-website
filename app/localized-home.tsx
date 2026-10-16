@@ -121,6 +121,7 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
   const serviceUrl = lang === "en" ? `${basePath}/en/services/indonesian-diaspora-marketing/` : `${basePath}/id/layanan/pemasaran-diaspora-indonesia/`;
   const malaysiaUrl = lang === "en" ? `${basePath}/en/markets/malaysia/` : `${basePath}/id/pasar/malaysia/`;
   const caseStudyUrl = lang === "en" ? `${basePath}/en/work/gonilai-malaysia/` : `${basePath}/id/karya/gonilai-malaysia/`;
+  const insightsUrl = `${basePath}/en/insights/`;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -224,7 +225,7 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
         <div className="final-orbit"></div><p className="eyebrow light"><i></i>{t.finalEyebrow}</p><h2>{t.finalTitle}</h2><p>{t.finalBody}</p><a className="button white" href={whatsapp} target="_blank" rel="noreferrer">{t.finalCta}<span>↗</span></a>
       </section>
 
-      <footer><a className="brand footer-brand" href="#top"><span>my</span>bite<span className="brand-dot">.</span></a><p>{t.footer}</p><div><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="footer-language" href={lang === "en" ? indonesianUrl : englishUrl} hrefLang={lang === "en" ? "id" : "en"}>{lang === "en" ? "Bahasa Indonesia" : "English"}</a></div><small>© {new Date().getFullYear()} MyBite. All rights reserved.</small></footer>
+      <footer><a className="brand footer-brand" href="#top"><span>my</span>bite<span className="brand-dot">.</span></a><p>{t.footer}</p><div><a href={insightsUrl}>Insights</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="footer-language" href={lang === "en" ? indonesianUrl : englishUrl} hrefLang={lang === "en" ? "id" : "en"}>{lang === "en" ? "Bahasa Indonesia" : "English"}</a></div><small>© {new Date().getFullYear()} MyBite. All rights reserved.</small></footer>
     </main>
   );
 }
