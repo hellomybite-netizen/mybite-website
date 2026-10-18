@@ -82,8 +82,7 @@ function schemaFor(page: LandingPageData) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: page.breadcrumbHome, item: absolute(page.homePath) },
-          { "@type": "ListItem", position: 2, name: page.breadcrumbParent },
-          { "@type": "ListItem", position: 3, name: page.heroTitle, item: pageUrl },
+          { "@type": "ListItem", position: 2, name: page.breadcrumbParent, item: pageUrl },
         ],
       },
       {
