@@ -20,6 +20,30 @@ const clients = [
   { name: "Ilalang", logo: `${basePath}/clients/ilalang.png` },
 ];
 
+const featuredInsights = [
+  {
+    slug: "choosing-digital-marketing-agency-indonesian-communities-abroad",
+    eyebrow: "AGENCY STRATEGY",
+    title: "What to Expect from a Digital Marketing Agency for Indonesian Communities Abroad",
+    description: "How audience definition, localization, conversion design, and reporting should work together.",
+    readTime: "7 min read",
+  },
+  {
+    slug: "marketing-to-indonesians-in-malaysia",
+    eyebrow: "MALAYSIA MARKET",
+    title: "Marketing to Indonesians in Malaysia: A Practical Guide for Brands",
+    description: "Connect audience context, localized messaging, mobile journeys, and assisted conversion.",
+    readTime: "7 min read",
+  },
+  {
+    slug: "whatsapp-funnel-indonesian-audiences-abroad",
+    eyebrow: "WHATSAPP CONVERSION",
+    title: "How to Build a WhatsApp Funnel for Indonesian Audiences Abroad",
+    description: "Turn localized campaigns into qualified conversations with clearer intent and handoffs.",
+    readTime: "7 min read",
+  },
+];
+
 const copy = {
   en: {
     nav: ["Expertise", "Industries", "Approach", "Work"],
@@ -220,6 +244,29 @@ export default function LocalizedHome({ lang }: { lang: Language }) {
           <div className="case-copy"><p className="case-tag">{t.caseTag}</p><h3>{t.caseTitle}</h3><p>{t.caseBody}</p><a href={caseStudyUrl}>{t.caseLink}<span>↗</span></a></div>
         </article>
       </section>
+
+      {lang === "en" && (
+        <section className="section featured-insights" id="insights" aria-labelledby="featured-insights-title">
+          <div className="featured-insights-head">
+            <p className="eyebrow"><i></i>FEATURED INSIGHTS</p>
+            <div>
+              <h2 id="featured-insights-title">Practical guidance for reaching Indonesian communities abroad.</h2>
+              <p>Explore strategy, market context, and conversion principles for building relevant cross-border campaigns.</p>
+            </div>
+            <a href={insightsUrl}>View all insights <span>↗</span></a>
+          </div>
+          <div className="featured-insights-grid">
+            {featuredInsights.map((article, index) => (
+              <a href={`${insightsUrl}${article.slug}/`} key={article.slug}>
+                <span>0{index + 1} · {article.eyebrow}</span>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <b>{article.readTime} · Read article ↗</b>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="final-cta">
         <div className="final-orbit"></div><p className="eyebrow light"><i></i>{t.finalEyebrow}</p><h2>{t.finalTitle}</h2><p>{t.finalBody}</p><a className="button white" href={whatsapp} target="_blank" rel="noreferrer">{t.finalCta}<span>↗</span></a>

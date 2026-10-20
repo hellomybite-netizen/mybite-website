@@ -39,6 +39,24 @@ const clients = [
   { name: "Infinix", logo: "/clients/infinix.png" },
 ];
 
+const relatedInsights = {
+  diaspora: {
+    href: "/en/insights/choosing-digital-marketing-agency-indonesian-communities-abroad/",
+    label: "Choosing a digital marketing agency for Indonesian communities abroad",
+    description: "A practical guide to audience definition, localization, conversion, and reporting.",
+  },
+  malaysia: {
+    href: "/en/insights/marketing-to-indonesians-in-malaysia/",
+    label: "Marketing to Indonesians in Malaysia",
+    description: "Plan a market-specific campaign around context, messaging, mobile journeys, and assistance.",
+  },
+  gonilai: {
+    href: "/en/insights/whatsapp-funnel-indonesian-audiences-abroad/",
+    label: "Building a WhatsApp funnel for Indonesian audiences abroad",
+    description: "Connect campaign intent, customer preparation, human response, and useful measurement.",
+  },
+} as const;
+
 function absolute(path: string) {
   return path.startsWith("http") ? path : `${siteUrl}${path}`;
 }
@@ -101,6 +119,7 @@ export default function SeoLandingPage({ page }: { page: LandingPageData }) {
   const t = routes[page.lang];
   const alternateLabel = t.language;
   const secondaryExternal = page.secondaryHref.startsWith("http");
+  const relatedInsight = page.lang === "en" ? relatedInsights[page.key] : null;
 
   return (
     <main className={`landing landing-${page.key}`}>
@@ -235,8 +254,9 @@ export default function SeoLandingPage({ page }: { page: LandingPageData }) {
 
       <section className="landing-section landing-related">
         <div className="landing-section-intro compact"><p className="eyebrow"><i></i>{page.relatedEyebrow}</p><h2>{page.relatedTitle}</h2></div>
-        <div className="landing-related-grid">
+        <div className={`landing-related-grid${relatedInsight ? " with-insight" : ""}`}>
           {page.related.map((link) => <a href={link.href} key={link.href}><span>MYBITE</span><h3>{link.label}</h3><p>{link.description}</p><b>Explore ↗</b></a>)}
+          {relatedInsight && <a href={relatedInsight.href}><span>RECOMMENDED INSIGHT</span><h3>{relatedInsight.label}</h3><p>{relatedInsight.description}</p><b>Read article ↗</b></a>}
         </div>
       </section>
 
